@@ -1,12 +1,6 @@
 const Page = require("./page");
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class ProductsPage extends Page {
-  /**
-   * define selectors using getter methods
-   */
   get sortDropDown() {
     return $(".product_sort_container");
   }
@@ -43,7 +37,6 @@ class ProductsPage extends Page {
   async addItemToCart() {
     await (await this.addTestAllTheThingsTshirt).click();
   }
-
 }
 
 module.exports = new ProductsPage();

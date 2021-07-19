@@ -1,13 +1,6 @@
 const Page = require("./page");
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class CheckoutPage extends Page {
-  /**
-   * define selectors using getter methods
-   */
-
   get inputFirstName() {
     return $("#first-name");
   }
@@ -21,7 +14,7 @@ class CheckoutPage extends Page {
   }
 
   get continueBtn() {
-      return $("#continue");
+    return $("#continue");
   }
 
   async checkout(firstName, lastName, zipcode) {
@@ -34,7 +27,7 @@ class CheckoutPage extends Page {
   get checkoutItemOne() {
     return $("#item_5_title_link");
   }
-  
+
   get checkoutItemTwo() {
     return $("#item_3_title_link");
   }
@@ -43,29 +36,21 @@ class CheckoutPage extends Page {
     return $(".summary_subtotal_label");
   }
 
-  get summaryTax() {
-    return $(".summary_tax_label");
-  }
-
   get summaryTotal() {
     return $(".summary_total_label");
   }
 
-  async checkTotal() {
-    (await this.summarySubtotal.getValue()) + this.summaryTax.getValue();
+  get finishBtn() {
+    return $("#finish");
   }
 
-  get finishBtn() {
-      return $("#finish");
+  get completeHeader() {
+    return $(".complete-header");
   }
 
   async finish() {
     await (await this.finishBtn).click();
   }
-
-  //   async checkTotal() {
-  //     await (this.summarySubtotal.getValue() + this.summaryTax.getValue());
-  //   }
 }
 
 module.exports = new CheckoutPage();
