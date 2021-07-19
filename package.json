@@ -1,0 +1,17 @@
+{
+  "name": "saucedemo-specs",
+  "version": "1.0.0",
+  "description": "UI automation for www.saucedemo.com",
+  "scripts": {
+    "test": "wdio run ./wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prakruti-pk/saucedemo-specs.git"
+  },
+  "author": "Prakruti PK",
+  "license": "MIT",
+  "dependencies": {
+    "@wdio/cli": "^7.7.7"
+  }
+}
