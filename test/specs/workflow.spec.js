@@ -12,27 +12,26 @@ describe("Login, sort, add/remove cart items, and checkout workflow", () => {
 
   it("sorts products from high to low prices", async () => {
     await ProductsPage.sortPriceHiToLow();
+    // optionally, we could assert that items are sorted by checking that
+    // all their prices are in descending order
   });
 
-  it("adds products and navigates to cart when the cart icon is clicked", async () => {
-    await ProductsPage.addItemsToCart();
+  it("navigates to and displays products in cart after adding them", async () => {
+    await ProductsPage.addItemsOneAndFiveToCart();
     await ProductsPage.goToCart();
     await expectAsync(CartPage.title).toHaveTextContaining("YOUR CART");
-  });
-
-  it("displays the correct cart items", async () => {
     await expectAsync(CartPage.itemOne).toExist();
     await expectAsync(CartPage.itemFive).toExist();
   });
 
-  it("removes the BoltLabs T-shirt from the cart and navigates back to products", async () => {
-    await CartPage.removeBoltLabsTshirt();
+  it("removes item one from the cart and navigates back to products", async () => {
+    await CartPage.removeItemOne();
     await CartPage.backToProducts();
     await expectAsync(ProductsPage.title).toHaveTextContaining("PRODUCTS");
   });
 
-  it("adds the TestAllTheThings T-shirt and navigates back to the cart", async () => {
-    await ProductsPage.addItemToCart();
+  it("adds item three and navigates back to the cart", async () => {
+    await ProductsPage.addItemThreeToCart();
     await ProductsPage.goToCart();
   });
 
@@ -45,8 +44,8 @@ describe("Login, sort, add/remove cart items, and checkout workflow", () => {
   });
 
   it("displays the previously selected items with the correct item prices", async () => {
-    await expectAsync(CheckoutPage.checkoutItemOne).toExist();
-    await expectAsync(CheckoutPage.checkoutItemTwo).toExist();
+    await expectAsync(CheckoutPage.checkoutItemFive).toExist();
+    await expectAsync(CheckoutPage.checkoutItemThree).toExist();
     await expectAsync(CheckoutPage.summarySubtotal).toHaveTextContaining(
       "$65.98"
     );

@@ -9,12 +9,12 @@ class CartPage extends Page {
     return $("#item_5_title_link");
   }
 
-  get boltLabsTshirt() {
+  get removeItemOneBtn() {
     return $("#remove-sauce-labs-bolt-t-shirt");
   }
 
-  async removeBoltLabsTshirt() {
-    await (await this.boltLabsTshirt).click();
+  async removeItemOne() {
+    await (await this.removeItemOneBtn).click();
   }
 
   get continueShopping() {

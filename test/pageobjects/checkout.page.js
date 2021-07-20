@@ -24,11 +24,11 @@ class CheckoutPage extends Page {
     await (await this.continueBtn).click();
   }
 
-  get checkoutItemOne() {
+  get checkoutItemFive() {
     return $("#item_5_title_link");
   }
 
-  get checkoutItemTwo() {
+  get checkoutItemThree() {
     return $("#item_3_title_link");
   }
 

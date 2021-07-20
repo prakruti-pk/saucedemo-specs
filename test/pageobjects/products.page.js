@@ -9,17 +9,17 @@ class ProductsPage extends Page {
     await (await this.sortDropDown).selectByAttribute("value", "hilo");
   }
 
-  get addSauceLabsFleeceJacket() {
+  get addItemOneBtn() {
     return $("#add-to-cart-sauce-labs-fleece-jacket");
   }
 
-  get addSauceLabsBoltTshirt() {
+  get addItemFiveBtn() {
     return $("#add-to-cart-sauce-labs-bolt-t-shirt");
   }
 
-  async addItemsToCart() {
-    await (await this.addSauceLabsFleeceJacket).click();
-    await (await this.addSauceLabsBoltTshirt).click();
+  async addItemsOneAndFiveToCart() {
+    await (await this.addItemOneBtn).click();
+    await (await this.addItemFiveBtn).click();
   }
 
   get ShoppingCartLink() {
@@ -30,12 +30,12 @@ class ProductsPage extends Page {
     await (await this.ShoppingCartLink).click();
   }
 
-  get addTestAllTheThingsTshirt() {
+  get addItemThreeBtn() {
     return $("#add-to-cart-test\\.allthethings\\(\\)-t-shirt-\\(red\\)");
   }
 
-  async addItemToCart() {
-    await (await this.addTestAllTheThingsTshirt).click();
+  async addItemThreeToCart() {
+    await (await this.addItemThreeBtn).click();
   }
 }
 
